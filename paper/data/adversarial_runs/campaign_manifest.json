@@ -1,0 +1,81 @@
+{
+  "seed": 20260629,
+  "collection_mode": "interleaved-global-shuffle",
+  "models": [
+    "openai:gpt-5.5",
+    "anthropic:claude-opus-4-8"
+  ],
+  "arms": [
+    "bare",
+    "policy",
+    "scaffold"
+  ],
+  "runs_per_scenario": 5,
+  "scenarios": 24,
+  "scenarios_sha256": "48c32883f75b04882fa6d88e52c3c2df1d43e57a9aca6df588c087621574f460",
+  "total_cells": 720,
+  "truncated_runs": 0,
+  "arm_results": {
+    "anthropic:claude-opus-4-8/bare": {
+      "valid_runs": 61,
+      "total_runs": 120,
+      "valid_rate": 0.5083
+    },
+    "anthropic:claude-opus-4-8/policy": {
+      "valid_runs": 112,
+      "total_runs": 120,
+      "valid_rate": 0.9333
+    },
+    "anthropic:claude-opus-4-8/scaffold": {
+      "valid_runs": 116,
+      "total_runs": 120,
+      "valid_rate": 0.9667
+    },
+    "openai:gpt-5.5/bare": {
+      "valid_runs": 71,
+      "total_runs": 120,
+      "valid_rate": 0.5917
+    },
+    "openai:gpt-5.5/policy": {
+      "valid_runs": 118,
+      "total_runs": 120,
+      "valid_rate": 0.9833
+    },
+    "openai:gpt-5.5/scaffold": {
+      "valid_runs": 120,
+      "total_runs": 120,
+      "valid_rate": 1.0
+    }
+  },
+  "sessions": [
+    {
+      "cells": 291,
+      "start_utc": "2026-06-30T14:07:45.044504+00:00",
+      "end_utc": "2026-06-30T14:38:56.657445+00:00"
+    },
+    {
+      "cells": 429,
+      "start_utc": "2026-06-30T14:53:10.241343+00:00",
+      "end_utc": "2026-06-30T15:37:30.315053+00:00"
+    }
+  ],
+  "smoke_cells": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.5",
+      "arm": "scaffold",
+      "scenario": "too_many_0",
+      "run_index": 5,
+      "collected_utc": "2026-06-30T14:07:45.044504+00:00"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+      "arm": "scaffold",
+      "scenario": "too_many_0",
+      "run_index": 5,
+      "collected_utc": "2026-06-30T14:07:47.110222+00:00"
+    }
+  ],
+  "provenance_note": "Collected over the frozen architecture in a single globally-randomized interleaved campaign. The two earliest cells (one per provider, listed under smoke_cells) are a paid smoke collected contiguously (<120s) just before the main run. The campaign was interrupted once and resumed from cache with no recollection or re-spend, which is why two sessions appear below with a ~14-min gap between them. Arm order is a global shuffle (median span between a scenario's three arms ~356 of 720 positions): it de-confounds temporal and model-version drift by uniform randomization across the window, not by local/paired adjacency."
+}

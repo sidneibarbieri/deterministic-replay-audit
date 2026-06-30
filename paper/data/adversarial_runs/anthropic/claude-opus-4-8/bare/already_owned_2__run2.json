@@ -1,0 +1,38 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "arm": "bare",
+  "scenario": "already_owned_2",
+  "run_index": 2,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 900.00.\nAllowed universe: GOOGL, NVO.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "11b9d2d8d75b2a2b86e7483327abd4d7c449e296f832f095c9026eedb3a5b1ad",
+  "raw_response": "{\"tickers\": [\"NVO\"], \"cited_fact_ids\": []}",
+  "usage": {
+    "input_tokens": 249,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 27,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 2.2,
+  "collected_utc": "2026-06-30T15:22:34.598069+00:00",
+  "parsed": {
+    "tickers": [
+      "NVO"
+    ],
+    "amounts": [],
+    "cited_fact_ids": []
+  }
+}

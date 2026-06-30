@@ -1,0 +1,62 @@
+[
+  {
+    "scenario_name": "new_position_under_target",
+    "advisor_label": "gpt-5.5",
+    "runs": 3,
+    "valid_runs": 3,
+    "violation_counts": [],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 1.0,
+      "unique_tickers": [
+        "ADBE",
+        "ANET",
+        "MA"
+      ],
+      "amount_stability": null
+    },
+    "mean_overlap_at_k": 3.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": null,
+    "mean_fee": null
+  },
+  {
+    "scenario_name": "subtranche_cash_deployment",
+    "advisor_label": "gpt-5.5",
+    "runs": 3,
+    "valid_runs": 3,
+    "violation_counts": [],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 1.0,
+      "unique_tickers": [
+        "TSM"
+      ],
+      "amount_stability": 1.0
+    },
+    "mean_overlap_at_k": 1.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": 900.0,
+    "mean_fee": 2.5
+  },
+  {
+    "scenario_name": "owned_ticker_and_fact_hallucination",
+    "advisor_label": "gpt-5.5",
+    "runs": 3,
+    "valid_runs": 3,
+    "violation_counts": [],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 1.0,
+      "unique_tickers": [
+        "ADBE",
+        "MA"
+      ],
+      "amount_stability": null
+    },
+    "mean_overlap_at_k": 2.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": null,
+    "mean_fee": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "scenario": "owned_ticker_and_fact_hallucination",
+  "run_index": 1,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1500.00.\nAllowed universe: MA, ADBE, ANET, V, MSCI.\nAlready owned: MSFT, TSM, NVO, SPGI.\nRecommend at most 2 tickers.\nFacts you may cite: owned_tickers_are_not_additions, ma_policy_candidate, adbe_policy_candidate, max_two_ideas_requested.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not recommend already-owned tickers. Do not include an \"amounts\" field unless explicitly required. Cite only fact ids provided.",
+  "prompt_hash": "31ce03aabc153f71856cdce953744495d7a7a5f1cd5a718034c7c838b49539a7",
+  "raw_response": "{\"tickers\": [\"MA\", \"ADBE\"], \"cited_fact_ids\": [\"ma_policy_candidate\", \"adbe_policy_candidate\", \"max_two_ideas_requested\"]}",
+  "usage": {
+    "input_tokens": 278,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 68,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "collected_utc": "2026-06-20T18:49:47.792743+00:00",
+  "parsed": {
+    "tickers": [
+      "MA",
+      "ADBE"
+    ],
+    "amounts": [],
+    "cited_fact_ids": [
+      "ma_policy_candidate",
+      "adbe_policy_candidate",
+      "max_two_ideas_requested"
+    ]
+  }
+}

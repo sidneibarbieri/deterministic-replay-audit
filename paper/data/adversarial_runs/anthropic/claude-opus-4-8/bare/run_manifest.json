@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "arm": "bare",
+  "temperature": 1.0,
+  "runs_per_scenario": 5,
+  "scenarios": 24,
+  "scenarios_file": "paper/data/adversarial_scenarios.json",
+  "scenarios_sha256": "48c32883f75b04882fa6d88e52c3c2df1d43e57a9aca6df588c087621574f460",
+  "live_calls": 120,
+  "truncated_runs": 0,
+  "retries": 0,
+  "total_latency_seconds": 248.548,
+  "started_utc": "2026-06-30T14:09:10.857025+00:00",
+  "finished_utc": "2026-06-30T15:36:31.326256+00:00",
+  "collection_mode": "interleaved-global-shuffle",
+  "campaign_seed": 20260629,
+  "note": "one globally randomized campaign over the frozen architecture, collected across two sessions (resumed once after an interruption); see campaign_manifest.json for consolidated provenance",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "darwin"
+  }
+}

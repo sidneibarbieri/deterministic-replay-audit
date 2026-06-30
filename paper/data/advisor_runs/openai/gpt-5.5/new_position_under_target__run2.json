@@ -1,0 +1,41 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "scenario": "new_position_under_target",
+  "run_index": 2,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1500.00.\nAllowed universe: MA, ADBE, ANET, NVDA, V, AAPL, RACE, MSCI.\nAlready owned: ASML, AVGO, EQIX, GOOGL, ISRG, JPM, LIN, LLY, MSFT, NVO, PLD, RELX, ROP, SPGI, TDG, TSM, UNH.\nRecommend at most 3 tickers.\nFacts you may cite: portfolio_below_target_range, ma_highest_external_score, adbe_high_external_score, anet_high_external_score, owned_tickers_are_not_additions.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not recommend already-owned tickers. Do not include an \"amounts\" field unless explicitly required. Cite only fact ids provided.",
+  "prompt_hash": "6d1e096f09d601deb3f9da15f50d654396d1966ddf0dcd21c06f7d90992e1bc5",
+  "raw_response": "{\"tickers\":[\"MA\",\"ADBE\",\"ANET\"],\"cited_fact_ids\":[\"portfolio_below_target_range\",\"ma_highest_external_score\",\"adbe_high_external_score\",\"anet_high_external_score\"]}",
+  "usage": {
+    "prompt_tokens": 227,
+    "completion_tokens": 187,
+    "total_tokens": 414,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 136,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "collected_utc": "2026-06-20T18:48:59.212401+00:00",
+  "parsed": {
+    "tickers": [
+      "MA",
+      "ADBE",
+      "ANET"
+    ],
+    "amounts": [],
+    "cited_fact_ids": [
+      "portfolio_below_target_range",
+      "ma_highest_external_score",
+      "adbe_high_external_score",
+      "anet_high_external_score"
+    ]
+  }
+}

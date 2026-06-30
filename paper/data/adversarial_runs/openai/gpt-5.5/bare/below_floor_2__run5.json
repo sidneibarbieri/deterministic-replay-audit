@@ -1,0 +1,42 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "bare",
+  "scenario": "below_floor_2",
+  "run_index": 5,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 480.00.\nAllowed universe: NVO, TM.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Include an \"amounts\" array with one USD amount per ticker.",
+  "prompt_hash": "186e0b330b954da613b6d5d5820b516cec3f6349b28e658bab7a1bcb179cc79c",
+  "raw_response": "{\"tickers\":[\"TM\",\"NVO\"],\"amounts\":[240.0,240.0],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 160,
+    "completion_tokens": 198,
+    "total_tokens": 358,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 162,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 3.905,
+  "collected_utc": "2026-06-30T15:24:51.925452+00:00",
+  "parsed": {
+    "tickers": [
+      "TM",
+      "NVO"
+    ],
+    "amounts": [
+      240.0,
+      240.0
+    ],
+    "cited_fact_ids": []
+  }
+}

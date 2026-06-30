@@ -1,0 +1,18 @@
+ticker,name,shares,cost_basis_per_share,current_price
+LIN,Linde plc,50.00000,113.64,100.00
+RELX,RELX Plc - ADR,59.82906,108.33,117.00
+SPGI,S&P Global Inc,33.58209,141.05,134.00
+EQIX,Equinix Inc,47.68212,132.46,151.00
+ASML,ASML Holding NV - ADR,23.80952,204.88,168.00
+ROP,Roper Technologies Inc,69.60784,96.23,102.00
+MSFT,Microsoft Corporation,36.97479,127.96,119.00
+GOOGL,Alphabet Inc - Class A,36.76471,124.77,136.00
+TSM,Taiwan Semiconductor Manufacturing - ADR,33.98693,137.84,153.00
+AVGO,Broadcom Inc,27.05882,177.08,170.00
+PLD,Prologis Inc,73.07692,100.97,104.00
+TDG,TransDigm Group Inc,38.84298,134.44,121.00
+NVO,Novo Nordisk - ADR,50.72464,123.21,138.00
+ISRG,Intuitive Surgical Inc,33.54839,164.89,155.00
+UNH,UnitedHealth Group Inc,38.95349,163.81,172.00
+JPM,JPMorgan Chase & Co,69.81132,99.07,106.00
+LLY,Eli Lilly & Co,35.77236,135.16,123.00

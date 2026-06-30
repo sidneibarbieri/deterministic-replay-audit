@@ -1,0 +1,40 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "policy",
+  "scenario": "fee_split_1",
+  "run_index": 2,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 700.00.\nAllowed universe: TSM, NVO.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nYou may recommend already-owned tickers when they are in the allowed universe.\nCite only fact ids provided.\nThe fee is USD 2.50 per started USD 1000 tranche, and the minimum economic order is USD 250.00. Deploy in the fewest tranches; do not split unless it is fee-neutral.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Include an \"amounts\" array with one USD amount per ticker.",
+  "prompt_hash": "02fb8bc8bdf4351b0be6b7d266c4b80b4dcba2f7bc8c41e8b3c623b90f1a7203",
+  "raw_response": "{\"tickers\":[\"NVO\"],\"amounts\":[697.5],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 228,
+    "completion_tokens": 542,
+    "total_tokens": 770,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 512,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 10.144,
+  "collected_utc": "2026-06-30T14:56:09.699001+00:00",
+  "parsed": {
+    "tickers": [
+      "NVO"
+    ],
+    "amounts": [
+      697.5
+    ],
+    "cited_fact_ids": []
+  }
+}

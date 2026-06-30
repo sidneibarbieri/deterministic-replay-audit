@@ -1,0 +1,49 @@
+{
+  "status": "collected",
+  "provider": "azure",
+  "model": "chat",
+  "scenario": "subtranche_cash_deployment",
+  "run_index": 2,
+  "temperature": 0.7,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 900.00.\nAllowed universe: TSM, NVO.\nAlready owned: ASML, AVGO, EQIX, GOOGL, ISRG, JPM, LIN, LLY, MSFT, NVO, PLD, RELX, ROP, SPGI, TDG, TSM, UNH.\nRecommend at most 2 tickers.\nFacts you may cite: cash_below_one_tranche, split_pays_extra_fixed_fee, tsm_top_ranked_holding.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. You may recommend already-owned tickers when they are in the allowed universe. Include an \"amounts\" array with one USD amount per ticker. Cite only fact ids provided.",
+  "prompt_hash": "df4cd65bc22fd389a12db6a9af9e8a227b7f05d9e0b9bbfe9825ff57db52e8e4",
+  "raw_response": "{\"tickers\": [\"TSM\"], \"amounts\": [900.0], \"cited_fact_ids\": [\"tsm_top_ranked_holding\"]}",
+  "usage": {
+    "completion_tokens": 34,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 12,
+      "engine_ttft_ms": 42,
+      "engine_ttlt_ms": 461,
+      "pre_inference_ms": 109,
+      "service_tbt_ms": 13,
+      "service_ttft_ms": 191,
+      "service_ttlt_ms": 604,
+      "total_duration_ms": 516,
+      "user_visible_ttft_ms": 82
+    },
+    "prompt_tokens": 208,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "total_tokens": 242
+  },
+  "collected_utc": "2026-06-15T09:58:21.736211+00:00",
+  "parsed": {
+    "tickers": [
+      "TSM"
+    ],
+    "amounts": [
+      900.0
+    ],
+    "cited_fact_ids": [
+      "tsm_top_ranked_holding"
+    ]
+  }
+}

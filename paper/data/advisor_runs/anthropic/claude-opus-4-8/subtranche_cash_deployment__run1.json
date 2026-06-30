@@ -1,0 +1,40 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "scenario": "subtranche_cash_deployment",
+  "run_index": 1,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 900.00.\nAllowed universe: TSM, NVO.\nAlready owned: ASML, AVGO, EQIX, GOOGL, ISRG, JPM, LIN, LLY, MSFT, NVO, PLD, RELX, ROP, SPGI, TDG, TSM, UNH.\nRecommend at most 2 tickers.\nFacts you may cite: cash_below_one_tranche, split_pays_extra_fixed_fee, tsm_top_ranked_holding.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. You may recommend already-owned tickers when they are in the allowed universe. Include an \"amounts\" array with one USD amount per ticker. Cite only fact ids provided.",
+  "prompt_hash": "df4cd65bc22fd389a12db6a9af9e8a227b7f05d9e0b9bbfe9825ff57db52e8e4",
+  "raw_response": "{\"tickers\": [\"TSM\"], \"amounts\": [900.0], \"cited_fact_ids\": [\"cash_below_one_tranche\", \"split_pays_extra_fixed_fee\", \"tsm_top_ranked_holding\"]}",
+  "usage": {
+    "input_tokens": 326,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 80,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "collected_utc": "2026-06-20T18:49:43.004971+00:00",
+  "parsed": {
+    "tickers": [
+      "TSM"
+    ],
+    "amounts": [
+      900.0
+    ],
+    "cited_fact_ids": [
+      "cash_below_one_tranche",
+      "split_pays_extra_fixed_fee",
+      "tsm_top_ranked_holding"
+    ]
+  }
+}

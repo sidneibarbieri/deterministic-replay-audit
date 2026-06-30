@@ -1,0 +1,41 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "bare",
+  "scenario": "unsupported_fact_2",
+  "run_index": 2,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1100.00.\nAllowed universe: NVO, SHEL.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: market_fact_2.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "bee866e21f262228f3b2f1f086fdbe04cbddf50a3a9e342f1a5ff92fac7d59d7",
+  "raw_response": "{\"tickers\":[\"NVO\",\"SHEL\"],\"cited_fact_ids\":[\"market_fact_2\"]}",
+  "usage": {
+    "prompt_tokens": 164,
+    "completion_tokens": 447,
+    "total_tokens": 611,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 416,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 7.619,
+  "collected_utc": "2026-06-30T15:07:56.923305+00:00",
+  "parsed": {
+    "tickers": [
+      "NVO",
+      "SHEL"
+    ],
+    "amounts": [],
+    "cited_fact_ids": [
+      "market_fact_2"
+    ]
+  }
+}

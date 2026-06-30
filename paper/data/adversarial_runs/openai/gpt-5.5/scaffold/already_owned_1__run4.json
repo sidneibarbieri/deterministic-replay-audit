@@ -1,0 +1,38 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "scaffold",
+  "scenario": "already_owned_1",
+  "run_index": 4,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1200.00.\nAllowed universe: MSFT, TSM.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nDo not recommend already-owned tickers.\nCite only fact ids provided.\nFee arithmetic (already computed for you): a single order deploying your USD 1200.00 pays USD 5.00; splitting it into two equal orders pays USD 5.00. The fee is USD 2.50 per started USD 1000 tranche, and the minimum economic order is USD 250.00. Deploy in the fewest tranches; do not split unless it is fee-neutral.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "85d4f28499b35582f749255296d9b966f557a3a3bd5dc046d196d569deb87254",
+  "raw_response": "{\"tickers\":[\"TSM\"],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 260,
+    "completion_tokens": 148,
+    "total_tokens": 408,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 125,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 2.582,
+  "collected_utc": "2026-06-30T15:22:09.004846+00:00",
+  "parsed": {
+    "tickers": [
+      "TSM"
+    ],
+    "amounts": [],
+    "cited_fact_ids": []
+  }
+}

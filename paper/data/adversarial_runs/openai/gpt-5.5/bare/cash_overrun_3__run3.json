@@ -1,0 +1,44 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "bare",
+  "scenario": "cash_overrun_3",
+  "run_index": 3,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 2100.00.\nAllowed universe: SAP, TM, SHEL.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 3 tickers.\nFacts you may cite: none.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Include an \"amounts\" array with one USD amount per ticker.",
+  "prompt_hash": "06b645447282b5206dcd9caeeef30e3fa1e0f003c04a3699a45e5970e004e26a",
+  "raw_response": "{\"tickers\":[\"SAP\",\"TM\",\"SHEL\"],\"amounts\":[800.0,700.0,600.0],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 163,
+    "completion_tokens": 218,
+    "total_tokens": 381,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 176,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 4.419,
+  "collected_utc": "2026-06-30T14:19:48.612454+00:00",
+  "parsed": {
+    "tickers": [
+      "SAP",
+      "TM",
+      "SHEL"
+    ],
+    "amounts": [
+      800.0,
+      700.0,
+      600.0
+    ],
+    "cited_fact_ids": []
+  }
+}

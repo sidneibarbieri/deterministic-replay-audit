@@ -1,0 +1,38 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "arm": "bare",
+  "scenario": "already_owned_3",
+  "run_index": 1,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1800.00.\nAllowed universe: AMZN, SAP.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "fdaedd95155762d681271fa935b2da5068773812cd9734ca8addc42c27c54aaf",
+  "raw_response": "{\"tickers\": [\"SAP\"], \"cited_fact_ids\": []}",
+  "usage": {
+    "input_tokens": 249,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 27,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 1.673,
+  "collected_utc": "2026-06-30T15:26:57.777047+00:00",
+  "parsed": {
+    "tickers": [
+      "SAP"
+    ],
+    "amounts": [],
+    "cited_fact_ids": []
+  }
+}

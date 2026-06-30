@@ -1,0 +1,390 @@
+{
+  "version": "ai-advisor-audit-v1",
+  "description": "Frozen offline scenarios for auditing investment-advisor outputs. Synthetic baselines are failure-mode controls, not model results.",
+  "scenario_count": 3,
+  "advisor_count": 7,
+  "overall": {
+    "run_sets": 9,
+    "mean_valid_rate": 0.5555555555555556,
+    "mean_policy_agreement": 0.5740740740740741,
+    "mean_stability": 0.662962962962963,
+    "mean_amount_stability": 0.7555555555555555,
+    "violation_counts": {
+      "already_owned:MSFT": 2,
+      "already_owned:NVO": 1,
+      "already_owned:TSM": 1,
+      "below_min_order:NVO": 2,
+      "below_min_order:TSM": 1,
+      "ticker_not_allowed:MSFT": 2,
+      "ticker_not_allowed:NVO": 1,
+      "ticker_not_allowed:TSM": 1,
+      "too_many_recommendations": 2,
+      "unnecessary_split_fee": 3,
+      "unsupported_fact:unsupported_ai_momentum": 2,
+      "unsupported_fact:unsupported_dividend_fact": 1
+    }
+  },
+  "by_advisor": {
+    "constraint_breaker": {
+      "scenarios": 1,
+      "mean_valid_rate": 0.0,
+      "mean_policy_agreement": 0.0,
+      "mean_stability": 0.0,
+      "mean_amount_stability": null,
+      "violation_counts": {
+        "already_owned:MSFT": 1,
+        "already_owned:NVO": 1,
+        "already_owned:TSM": 1,
+        "ticker_not_allowed:MSFT": 1,
+        "ticker_not_allowed:NVO": 1,
+        "ticker_not_allowed:TSM": 1,
+        "too_many_recommendations": 2,
+        "unsupported_fact:unsupported_dividend_fact": 1
+      }
+    },
+    "deterministic_policy": {
+      "scenarios": 3,
+      "mean_valid_rate": 1.0,
+      "mean_policy_agreement": 1.0,
+      "mean_stability": 1.0,
+      "mean_amount_stability": 1.0,
+      "violation_counts": {}
+    },
+    "drifting_advisor": {
+      "scenarios": 1,
+      "mean_valid_rate": 1.0,
+      "mean_policy_agreement": 0.4444444444444444,
+      "mean_stability": 0.06666666666666667,
+      "mean_amount_stability": null,
+      "violation_counts": {}
+    },
+    "naive_diversifier": {
+      "scenarios": 1,
+      "mean_valid_rate": 0.0,
+      "mean_policy_agreement": 1.0,
+      "mean_stability": 1.0,
+      "mean_amount_stability": 0.9333333333333333,
+      "violation_counts": {
+        "unnecessary_split_fee": 2
+      }
+    },
+    "popularity_chaser": {
+      "scenarios": 1,
+      "mean_valid_rate": 0.0,
+      "mean_policy_agreement": 0.2222222222222222,
+      "mean_stability": 0.4,
+      "mean_amount_stability": null,
+      "violation_counts": {
+        "already_owned:MSFT": 1,
+        "ticker_not_allowed:MSFT": 1,
+        "unsupported_fact:unsupported_ai_momentum": 2
+      }
+    },
+    "underdeploying_advisor": {
+      "scenarios": 1,
+      "mean_valid_rate": 0.0,
+      "mean_policy_agreement": 0.5,
+      "mean_stability": 0.5,
+      "mean_amount_stability": 0.33333333333333326,
+      "violation_counts": {
+        "below_min_order:NVO": 2,
+        "below_min_order:TSM": 1,
+        "unnecessary_split_fee": 1
+      }
+    },
+    "valid_but_low_agreement": {
+      "scenarios": 1,
+      "mean_valid_rate": 1.0,
+      "mean_policy_agreement": 0.0,
+      "mean_stability": 1.0,
+      "mean_amount_stability": null,
+      "violation_counts": {}
+    }
+  },
+  "reports": [
+    {
+      "scenario_name": "new_position_under_target",
+      "advisor_label": "deterministic_policy",
+      "runs": 2,
+      "valid_runs": 2,
+      "violation_counts": [],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 1.0,
+        "unique_tickers": [
+          "ADBE",
+          "ANET",
+          "MA"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 3.0,
+      "mean_agreement_at_k": 1.0,
+      "mean_policy_jaccard": 1.0,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 1.0
+    },
+    {
+      "scenario_name": "new_position_under_target",
+      "advisor_label": "popularity_chaser",
+      "runs": 3,
+      "valid_runs": 0,
+      "violation_counts": [
+        [
+          "already_owned:MSFT",
+          1
+        ],
+        [
+          "ticker_not_allowed:MSFT",
+          1
+        ],
+        [
+          "unsupported_fact:unsupported_ai_momentum",
+          2
+        ]
+      ],
+      "stability": {
+        "runs": 3,
+        "mean_pairwise_jaccard": 0.4,
+        "unique_tickers": [
+          "AAPL",
+          "MA",
+          "MSFT",
+          "NVDA",
+          "V"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 0.6666666666666666,
+      "mean_agreement_at_k": 0.2222222222222222,
+      "mean_policy_jaccard": 0.13333333333333333,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 0.0
+    },
+    {
+      "scenario_name": "new_position_under_target",
+      "advisor_label": "drifting_advisor",
+      "runs": 3,
+      "valid_runs": 3,
+      "violation_counts": [],
+      "stability": {
+        "runs": 3,
+        "mean_pairwise_jaccard": 0.06666666666666667,
+        "unique_tickers": [
+          "AAPL",
+          "ADBE",
+          "ANET",
+          "MA",
+          "MSCI",
+          "NVDA",
+          "RACE",
+          "V"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 1.3333333333333333,
+      "mean_agreement_at_k": 0.4444444444444444,
+      "mean_policy_jaccard": 0.4,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 1.0
+    },
+    {
+      "scenario_name": "subtranche_cash_deployment",
+      "advisor_label": "deterministic_policy",
+      "runs": 2,
+      "valid_runs": 2,
+      "violation_counts": [],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 1.0,
+        "unique_tickers": [
+          "TSM"
+        ],
+        "amount_stability": 1.0
+      },
+      "mean_overlap_at_k": 1.0,
+      "mean_agreement_at_k": 1.0,
+      "mean_policy_jaccard": 1.0,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": 900.0,
+      "mean_fee": 2.5,
+      "valid_rate": 1.0
+    },
+    {
+      "scenario_name": "subtranche_cash_deployment",
+      "advisor_label": "naive_diversifier",
+      "runs": 2,
+      "valid_runs": 0,
+      "violation_counts": [
+        [
+          "unnecessary_split_fee",
+          2
+        ]
+      ],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 1.0,
+        "unique_tickers": [
+          "NVO",
+          "TSM"
+        ],
+        "amount_stability": 0.9333333333333333
+      },
+      "mean_overlap_at_k": 1.0,
+      "mean_agreement_at_k": 1.0,
+      "mean_policy_jaccard": 1.0,
+      "agreement_only_false_positive_runs": 2,
+      "mean_cash_used": 900.0,
+      "mean_fee": 5.0,
+      "valid_rate": 0.0
+    },
+    {
+      "scenario_name": "subtranche_cash_deployment",
+      "advisor_label": "underdeploying_advisor",
+      "runs": 2,
+      "valid_runs": 0,
+      "violation_counts": [
+        [
+          "below_min_order:NVO",
+          2
+        ],
+        [
+          "below_min_order:TSM",
+          1
+        ],
+        [
+          "unnecessary_split_fee",
+          1
+        ]
+      ],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 0.5,
+        "unique_tickers": [
+          "NVO",
+          "TSM"
+        ],
+        "amount_stability": 0.33333333333333326
+      },
+      "mean_overlap_at_k": 0.5,
+      "mean_agreement_at_k": 0.5,
+      "mean_policy_jaccard": 0.5,
+      "agreement_only_false_positive_runs": 1,
+      "mean_cash_used": 225.0,
+      "mean_fee": 3.75,
+      "valid_rate": 0.0
+    },
+    {
+      "scenario_name": "owned_ticker_and_fact_hallucination",
+      "advisor_label": "deterministic_policy",
+      "runs": 2,
+      "valid_runs": 2,
+      "violation_counts": [],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 1.0,
+        "unique_tickers": [
+          "ADBE",
+          "MA"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 2.0,
+      "mean_agreement_at_k": 1.0,
+      "mean_policy_jaccard": 1.0,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 1.0
+    },
+    {
+      "scenario_name": "owned_ticker_and_fact_hallucination",
+      "advisor_label": "constraint_breaker",
+      "runs": 2,
+      "valid_runs": 0,
+      "violation_counts": [
+        [
+          "already_owned:MSFT",
+          1
+        ],
+        [
+          "already_owned:NVO",
+          1
+        ],
+        [
+          "already_owned:TSM",
+          1
+        ],
+        [
+          "ticker_not_allowed:MSFT",
+          1
+        ],
+        [
+          "ticker_not_allowed:NVO",
+          1
+        ],
+        [
+          "ticker_not_allowed:TSM",
+          1
+        ],
+        [
+          "too_many_recommendations",
+          2
+        ],
+        [
+          "unsupported_fact:unsupported_dividend_fact",
+          1
+        ]
+      ],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 0.0,
+        "unique_tickers": [
+          "ADBE",
+          "MA",
+          "MSFT",
+          "NVO",
+          "TSM",
+          "V"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 0.0,
+      "mean_agreement_at_k": 0.0,
+      "mean_policy_jaccard": 0.0,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 0.0
+    },
+    {
+      "scenario_name": "owned_ticker_and_fact_hallucination",
+      "advisor_label": "valid_but_low_agreement",
+      "runs": 2,
+      "valid_runs": 2,
+      "violation_counts": [],
+      "stability": {
+        "runs": 2,
+        "mean_pairwise_jaccard": 1.0,
+        "unique_tickers": [
+          "MSCI",
+          "V"
+        ],
+        "amount_stability": null
+      },
+      "mean_overlap_at_k": 0.0,
+      "mean_agreement_at_k": 0.0,
+      "mean_policy_jaccard": 0.0,
+      "agreement_only_false_positive_runs": 0,
+      "mean_cash_used": null,
+      "mean_fee": null,
+      "valid_rate": 1.0
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executable-Action Audit - Reviewer Dashboard</title>
+<style>
+:root {
+  --ink: #1e293b; --muted: #64748b; --line: #e2e8f0; --paper: #ffffff;
+  --navy: #1e3a5f; --ok: #15803d; --warn: #b45309; --bad: #b91c1c;
+}
+* { box-sizing: border-box; }
+body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink); background: #f8fafc; margin: 0; line-height: 1.5; }
+header { background: var(--navy); color: #fff; padding: 28px 32px; }
+header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+header p { margin: 0; color: #cbd5e1; font-size: 14px; }
+main { max-width: 960px; margin: 0 auto; padding: 28px 32px 60px; }
+h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-top: 36px; }
+table { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 14px;
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { background: #f1f5f9; font-weight: 600; color: var(--muted); font-size: 12px;
+  text-transform: uppercase; letter-spacing: .04em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+td.muted, .muted { color: var(--muted); }
+.ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+.pill { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #e2e8f0; color: #334155; }
+.pill.scaffold { background: #dcfce7; color: #166534; }
+.pill.bare { background: #fee2e2; color: #991b1b; }
+.filters { margin: 12px 0; }
+.filters button { font: inherit; border: 1px solid var(--line); background: #fff; color: var(--ink);
+  padding: 6px 12px; border-radius: 6px; cursor: pointer; margin-right: 6px; }
+.filters button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.card h4 { margin: 0 0 8px; font-size: 14px; }
+.card p { margin: 2px 0; font-size: 13px; color: var(--muted); }
+code { background: #f1f5f9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+a { color: var(--navy); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Executable-Action Audit &mdash; Reviewer Dashboard</h1>
+  <p>Each row links to the raw audited model runs. Generated offline from the artifact.</p>
+</header>
+<main>
+  <h2>Validity by model and prompt arm</h2>
+  <p class="muted">Valid rate is the fraction of model runs that satisfy every constraint.
+  Higher is better; policy states the contract, and scaffold additionally supplies
+  the pre-computed fee arithmetic.</p>
+  <div class="filters" id="filters">
+    <button class="active" data-filter="all">All arms</button>
+    <button data-filter="bare">bare</button>
+    <button data-filter="policy">policy</button>
+    <button data-filter="scaffold">scaffold</button>
+  </div>
+  <table>
+    <thead><tr><th>Model</th><th>Arm</th><th>Valid rate</th><th>Valid/runs</th>
+    <th>Violations</th><th>Evidence</th></tr></thead>
+    <tbody id="rows">
+<tr data-arm="bare"><td>claude-opus-4-8</td><td><span class="pill bare">bare</span></td><td class="num bad">0.51</td><td class="num">61/120</td><td class="muted">amounts_required (52), below_min_order (2), unnecessary_split_fee (7)</td><td><a href="adversarial_runs/anthropic/claude-opus-4-8/bare/audit_summary.json">raw JSON</a></td></tr>
+<tr data-arm="policy"><td>claude-opus-4-8</td><td><span class="pill policy">policy</span></td><td class="num ok">0.93</td><td class="num">112/120</td><td class="muted">unnecessary_split_fee (8)</td><td><a href="adversarial_runs/anthropic/claude-opus-4-8/policy/audit_summary.json">raw JSON</a></td></tr>
+<tr data-arm="scaffold"><td>claude-opus-4-8</td><td><span class="pill scaffold">scaffold</span></td><td class="num ok">0.97</td><td class="num">116/120</td><td class="muted">already_owned (4)</td><td><a href="adversarial_runs/anthropic/claude-opus-4-8/scaffold/audit_summary.json">raw JSON</a></td></tr>
+<tr data-arm="bare"><td>gpt-5.5</td><td><span class="pill bare">bare</span></td><td class="num bad">0.59</td><td class="num">71/120</td><td class="muted">below_min_order (29), unnecessary_split_fee (49)</td><td><a href="adversarial_runs/openai/gpt-5.5/bare/audit_summary.json">raw JSON</a></td></tr>
+<tr data-arm="policy"><td>gpt-5.5</td><td><span class="pill policy">policy</span></td><td class="num ok">0.98</td><td class="num">118/120</td><td class="muted">unnecessary_split_fee (2)</td><td><a href="adversarial_runs/openai/gpt-5.5/policy/audit_summary.json">raw JSON</a></td></tr>
+<tr data-arm="scaffold"><td>gpt-5.5</td><td><span class="pill scaffold">scaffold</span></td><td class="num ok">1.00</td><td class="num">120/120</td><td class="muted">none</td><td><a href="adversarial_runs/openai/gpt-5.5/scaffold/audit_summary.json">raw JSON</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Reproducibility and provenance</h2>
+  <div class="cards">
+<div class="card"><h4>claude-opus-4-8 / bare</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+<div class="card"><h4>claude-opus-4-8 / policy</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+<div class="card"><h4>claude-opus-4-8 / scaffold</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+<div class="card"><h4>gpt-5.5 / bare</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+<div class="card"><h4>gpt-5.5 / policy</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+<div class="card"><h4>gpt-5.5 / scaffold</h4><p>scenarios hash <code>48c32883f75b0488</code></p><p>temperature 1.0 &middot; 120 calls &middot; 0 retries</p><p>wall clock ? s &middot; python 3.11.15</p></div>
+  </div>
+</main>
+<script>
+const buttons = document.querySelectorAll('#filters button');
+buttons.forEach(button => button.addEventListener('click', () => {
+  buttons.forEach(other => other.classList.remove('active'));
+  button.classList.add('active');
+  const filter = button.dataset.filter;
+  document.querySelectorAll('#rows tr').forEach(row => {
+    row.style.display = (filter === 'all' || row.dataset.arm === filter) ? '' : 'none';
+  });
+}));
+</script>
+</body>
+</html>

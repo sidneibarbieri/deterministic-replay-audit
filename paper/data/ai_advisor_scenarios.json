@@ -1,0 +1,373 @@
+{
+  "version": "ai-advisor-audit-v1",
+  "description": "Frozen offline scenarios for auditing investment-advisor outputs. Synthetic baselines are failure-mode controls, not model results.",
+  "scenarios": [
+    {
+      "name": "new_position_under_target",
+      "cash": 1500.0,
+      "allowed_tickers": [
+        "MA",
+        "ADBE",
+        "ANET",
+        "NVDA",
+        "V",
+        "AAPL",
+        "RACE",
+        "MSCI"
+      ],
+      "owned_tickers": [
+        "ASML",
+        "AVGO",
+        "EQIX",
+        "GOOGL",
+        "ISRG",
+        "JPM",
+        "LIN",
+        "LLY",
+        "MSFT",
+        "NVO",
+        "PLD",
+        "RELX",
+        "ROP",
+        "SPGI",
+        "TDG",
+        "TSM",
+        "UNH"
+      ],
+      "policy_tickers": [
+        "MA",
+        "ADBE",
+        "ANET"
+      ],
+      "available_fact_ids": [
+        "portfolio_below_target_range",
+        "ma_highest_external_score",
+        "adbe_high_external_score",
+        "anet_high_external_score",
+        "owned_tickers_are_not_additions"
+      ],
+      "max_recommendations": 3,
+      "add_only": true,
+      "amounts_required": false,
+      "recommendations": {
+        "deterministic_policy": [
+          {
+            "run_id": "det_1",
+            "tickers": [
+              "MA",
+              "ADBE",
+              "ANET"
+            ],
+            "cited_fact_ids": [
+              "portfolio_below_target_range",
+              "ma_highest_external_score",
+              "adbe_high_external_score"
+            ]
+          },
+          {
+            "run_id": "det_2",
+            "tickers": [
+              "MA",
+              "ADBE",
+              "ANET"
+            ],
+            "cited_fact_ids": [
+              "portfolio_below_target_range",
+              "ma_highest_external_score",
+              "anet_high_external_score"
+            ]
+          }
+        ],
+        "popularity_chaser": [
+          {
+            "run_id": "popular_1",
+            "tickers": [
+              "NVDA",
+              "AAPL",
+              "MA"
+            ],
+            "cited_fact_ids": [
+              "ma_highest_external_score",
+              "unsupported_ai_momentum"
+            ]
+          },
+          {
+            "run_id": "popular_2",
+            "tickers": [
+              "AAPL",
+              "NVDA",
+              "V"
+            ],
+            "cited_fact_ids": [
+              "unsupported_ai_momentum"
+            ]
+          },
+          {
+            "run_id": "popular_3",
+            "tickers": [
+              "NVDA",
+              "MA",
+              "MSFT"
+            ],
+            "cited_fact_ids": [
+              "owned_tickers_are_not_additions"
+            ]
+          }
+        ],
+        "drifting_advisor": [
+          {
+            "run_id": "drift_1",
+            "tickers": [
+              "MA",
+              "ADBE",
+              "ANET"
+            ]
+          },
+          {
+            "run_id": "drift_2",
+            "tickers": [
+              "NVDA",
+              "AAPL",
+              "RACE"
+            ]
+          },
+          {
+            "run_id": "drift_3",
+            "tickers": [
+              "V",
+              "MSCI",
+              "ADBE"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "subtranche_cash_deployment",
+      "cash": 900.0,
+      "allowed_tickers": [
+        "TSM",
+        "NVO"
+      ],
+      "owned_tickers": [
+        "ASML",
+        "AVGO",
+        "EQIX",
+        "GOOGL",
+        "ISRG",
+        "JPM",
+        "LIN",
+        "LLY",
+        "MSFT",
+        "NVO",
+        "PLD",
+        "RELX",
+        "ROP",
+        "SPGI",
+        "TDG",
+        "TSM",
+        "UNH"
+      ],
+      "policy_tickers": [
+        "TSM"
+      ],
+      "available_fact_ids": [
+        "cash_below_one_tranche",
+        "split_pays_extra_fixed_fee",
+        "tsm_top_ranked_holding"
+      ],
+      "max_recommendations": 2,
+      "add_only": false,
+      "amounts_required": true,
+      "recommendations": {
+        "deterministic_policy": [
+          {
+            "run_id": "det_1",
+            "tickers": [
+              "TSM"
+            ],
+            "amounts": [
+              900.0
+            ],
+            "cited_fact_ids": [
+              "cash_below_one_tranche",
+              "tsm_top_ranked_holding"
+            ]
+          },
+          {
+            "run_id": "det_2",
+            "tickers": [
+              "TSM"
+            ],
+            "amounts": [
+              900.0
+            ],
+            "cited_fact_ids": [
+              "split_pays_extra_fixed_fee"
+            ]
+          }
+        ],
+        "naive_diversifier": [
+          {
+            "run_id": "naive_1",
+            "tickers": [
+              "TSM",
+              "NVO"
+            ],
+            "amounts": [
+              540.0,
+              360.0
+            ],
+            "cited_fact_ids": [
+              "tsm_top_ranked_holding"
+            ]
+          },
+          {
+            "run_id": "naive_2",
+            "tickers": [
+              "TSM",
+              "NVO"
+            ],
+            "amounts": [
+              600.0,
+              300.0
+            ],
+            "cited_fact_ids": [
+              "cash_below_one_tranche"
+            ]
+          }
+        ],
+        "underdeploying_advisor": [
+          {
+            "run_id": "under_1",
+            "tickers": [
+              "TSM",
+              "NVO"
+            ],
+            "amounts": [
+              200.0,
+              100.0
+            ],
+            "cited_fact_ids": [
+              "cash_below_one_tranche"
+            ]
+          },
+          {
+            "run_id": "under_2",
+            "tickers": [
+              "NVO"
+            ],
+            "amounts": [
+              150.0
+            ],
+            "cited_fact_ids": [
+              "cash_below_one_tranche"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "owned_ticker_and_fact_hallucination",
+      "cash": 1500.0,
+      "allowed_tickers": [
+        "MA",
+        "ADBE",
+        "ANET",
+        "V",
+        "MSCI"
+      ],
+      "owned_tickers": [
+        "MSFT",
+        "TSM",
+        "NVO",
+        "SPGI"
+      ],
+      "policy_tickers": [
+        "MA",
+        "ADBE"
+      ],
+      "available_fact_ids": [
+        "owned_tickers_are_not_additions",
+        "ma_policy_candidate",
+        "adbe_policy_candidate",
+        "max_two_ideas_requested"
+      ],
+      "max_recommendations": 2,
+      "add_only": true,
+      "amounts_required": false,
+      "recommendations": {
+        "deterministic_policy": [
+          {
+            "run_id": "det_1",
+            "tickers": [
+              "MA",
+              "ADBE"
+            ],
+            "cited_fact_ids": [
+              "ma_policy_candidate",
+              "adbe_policy_candidate"
+            ]
+          },
+          {
+            "run_id": "det_2",
+            "tickers": [
+              "MA",
+              "ADBE"
+            ],
+            "cited_fact_ids": [
+              "max_two_ideas_requested"
+            ]
+          }
+        ],
+        "constraint_breaker": [
+          {
+            "run_id": "break_1",
+            "tickers": [
+              "MSFT",
+              "TSM",
+              "MA"
+            ],
+            "cited_fact_ids": [
+              "unsupported_dividend_fact"
+            ]
+          },
+          {
+            "run_id": "break_2",
+            "tickers": [
+              "NVO",
+              "V",
+              "ADBE"
+            ],
+            "cited_fact_ids": [
+              "owned_tickers_are_not_additions",
+              "adbe_policy_candidate"
+            ]
+          }
+        ],
+        "valid_but_low_agreement": [
+          {
+            "run_id": "valid_1",
+            "tickers": [
+              "V",
+              "MSCI"
+            ],
+            "cited_fact_ids": [
+              "max_two_ideas_requested"
+            ]
+          },
+          {
+            "run_id": "valid_2",
+            "tickers": [
+              "MSCI",
+              "V"
+            ],
+            "cited_fact_ids": [
+              "max_two_ideas_requested"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

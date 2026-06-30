@@ -1,0 +1,40 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "arm": "policy",
+  "scenario": "below_floor_1",
+  "run_index": 3,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 450.00.\nAllowed universe: TSM, SAP.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nYou may recommend already-owned tickers when they are in the allowed universe.\nCite only fact ids provided.\nThe fee is USD 2.50 per started USD 1000 tranche, and the minimum economic order is USD 250.00. Deploy in the fewest tranches; do not split unless it is fee-neutral.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Include an \"amounts\" array with one USD amount per ticker.",
+  "prompt_hash": "e84304175ae6d022d0f0b16877585d9799c838a8b416fa7e6ce0a5ff7894c7c1",
+  "raw_response": "{\"tickers\": [\"TSM\"], \"amounts\": [450.0], \"cited_fact_ids\": []}",
+  "usage": {
+    "input_tokens": 351,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 37,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 1.817,
+  "collected_utc": "2026-06-30T15:27:31.598340+00:00",
+  "parsed": {
+    "tickers": [
+      "TSM"
+    ],
+    "amounts": [
+      450.0
+    ],
+    "cited_fact_ids": []
+  }
+}

@@ -1,0 +1,100 @@
+\begin{tikzpicture}[
+  x=1cm,
+  y=1cm,
+  >=Stealth,
+  header/.style={
+    font=\sffamily\scriptsize\bfseries,
+    text=arenaGray!88!black,
+    align=center
+  },
+  panel/.style={
+    rounded corners=3pt,
+    draw=arenaInk!20,
+    fill=arenaLight,
+    line width=.35pt
+  },
+  card/.style={
+    rounded corners=2pt,
+    draw=arenaInk!42,
+    fill=white,
+    line width=.45pt,
+    align=center,
+    inner xsep=3pt,
+    inner ysep=2.4pt,
+    font=\sffamily\scriptsize
+  },
+  bluecard/.style={card, draw=arenaBlue!62, fill=arenaBlue!6},
+  greencard/.style={card, draw=arenaGreen!68!black, fill=arenaGreen!6},
+  redcard/.style={card, draw=arenaRed!75!black, fill=arenaRed!6},
+  rule/.style={
+    rounded corners=1.5pt,
+    draw=arenaInk!24,
+    fill=white,
+    line width=.32pt,
+    font=\sffamily\tiny,
+    align=left,
+    inner xsep=3.5pt,
+    inner ysep=2.2pt
+  },
+  wire/.style={draw=arenaInk!70, line width=.5pt},
+  arrow/.style={wire, -{Stealth[length=3.4pt,width=4.2pt]}},
+  note/.style={font=\sffamily\scriptsize, text=arenaGray!90!black, align=center}
+]
+
+% Four groups; symmetric gaps 0.9/0.7/0.9 give equal-length connecting arrows.
+\path[use as bounding box] (-.05,-1.52) rectangle (11.60,1.66);
+
+% panels
+\node[panel, minimum width=2.05cm, minimum height=2.36cm] at (1.175,0) {};
+\node[panel, minimum width=3.40cm, minimum height=2.36cm] (contract) at (6.80,0) {};
+\node[panel, minimum width=2.05cm, minimum height=2.36cm] at (10.425,0) {};
+
+\node[header] at (1.175,1.32) {frozen evidence};
+\node[header] at (6.80,1.32) {deterministic contract};
+\node[header] at (10.425,1.32) {review artifact};
+
+% inputs
+\node[bluecard, text width=1.50cm] (scenario) at (1.175,.50)
+  {$\sigma$ scenario\\[1pt]{\tiny cash, holdings,\\universe, facts}};
+\node[bluecard, text width=1.50cm] (reply) at (1.175,-.50)
+  {$r$ reply\\[1pt]{\tiny tickers, dollars,\\citations}};
+
+% parse
+\node[greencard, text width=1.30cm] (parse) at (3.75,0)
+  {parse $r{\to}a$\\[1pt]{\tiny typed action}};
+
+% contract content
+\node[header, text=arenaGreen!50!black] at (6.80,.86)
+  {$C(\sigma,a)$ holds iff every row holds};
+\node[rule, text width=2.90cm] (admissible) at (6.80,.40)
+  {\textbf{Admissible:} universe, cap, cash};
+\node[rule, text width=2.90cm, draw=arenaRed!55!black, fill=arenaRed!6] (economic) at (6.80,0)
+  {\textbf{Economic:} floor, split, fee};
+\node[rule, text width=2.90cm] (grounded) at (6.80,-.40)
+  {\textbf{Grounded:} facts, replay hash};
+\node[note] at (6.80,-.86) {decided before any return};
+
+% outputs
+\node[greencard, text width=1.50cm] (pass) at (10.425,.74)
+  {PASS\\[1pt]{\tiny executable orders}};
+\node[redcard, text width=1.50cm] (fail) at (10.425,0)
+  {FAIL\\[1pt]{\tiny typed violation}};
+\node[card, text width=1.50cm] (metrics) at (10.425,-.74)
+  {$V,\,S,\,S_w,\,A$\\[1pt]{\tiny audit metrics}};
+
+% input merge: short stub, then equal-length arrow to parse
+\draw[wire] (scenario.east) -- (2.51,.50);
+\draw[wire] (reply.east) -- (2.51,-.50);
+\draw[wire] (2.51,.50) -- (2.51,-.50);
+\draw[arrow] (2.51,0) -- (parse.west);
+
+% parse -> contract (same arrow length)
+\draw[arrow] (parse.east) -- (contract.west);
+
+% output branch: short stub, then equal-length arrows to PASS / FAIL / metrics
+\draw[wire] (contract.east) -- (9.04,0);
+\draw[wire] (9.04,.74) -- (9.04,-.74);
+\draw[arrow] (9.04,.74) -- (pass.west);
+\draw[arrow] (9.04,0) -- (fail.west);
+\draw[arrow] (9.04,-.74) -- (metrics.west);
+\end{tikzpicture}

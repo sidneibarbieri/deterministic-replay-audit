@@ -1,0 +1,178 @@
+{
+  "generated_utc": "20260604_170710",
+  "start_date": "2021-01-05",
+  "end_date": "2026-06-04",
+  "tickers": [
+    "LIN",
+    "RELX",
+    "SPGI",
+    "EQIX",
+    "ASML",
+    "ROP",
+    "MSFT",
+    "GOOGL",
+    "TSM",
+    "AVGO",
+    "PLD",
+    "TDG",
+    "NVO",
+    "ISRG",
+    "UNH",
+    "JPM",
+    "LLY"
+  ],
+  "benchmark_ticker": "SPY",
+  "baselines": {
+    "current_weight": {
+      "periods": 1360,
+      "rebalances": 0,
+      "total_return": 1.763844361454,
+      "cagr": 0.207285180957,
+      "annualized_volatility": 0.179673695659,
+      "sharpe_ratio": 1.138515338643,
+      "max_drawdown": -0.267733493324,
+      "total_cost": 0.0
+    },
+    "equal_weight": {
+      "periods": 1360,
+      "rebalances": 0,
+      "total_return": 2.024185132857,
+      "cagr": 0.227591590286,
+      "annualized_volatility": 0.187598328194,
+      "sharpe_ratio": 1.187137567626,
+      "max_drawdown": -0.271072821415,
+      "total_cost": 0.0
+    },
+    "benchmark": {
+      "periods": 1360,
+      "rebalances": 0,
+      "total_return": 1.204129785086,
+      "cagr": 0.15771011382,
+      "annualized_volatility": 0.16830505964,
+      "sharpe_ratio": 0.95434593422,
+      "max_drawdown": -0.244963979053,
+      "total_cost": 0.0
+    }
+  },
+  "comparisons": {
+    "current_vs_equal_weight": {
+      "excess_total_return": -0.260340771404,
+      "excess_cagr": -0.020306409329,
+      "sharpe_delta": -0.048622228983,
+      "max_drawdown_delta": 0.003339328091
+    },
+    "current_vs_benchmark": {
+      "excess_total_return": 0.559714576368,
+      "excess_cagr": 0.049575067137,
+      "sharpe_delta": 0.184169404424,
+      "max_drawdown_delta": -0.022769514272
+    }
+  },
+  "limitations": [
+    "Current-basket backtest; not a point-in-time stock-selection backtest.",
+    "Uses free Yahoo Finance adjusted closes.",
+    "Survivorship and selection bias are not eliminated."
+  ],
+  "ablations": {
+    "rebalanced_current": {
+      "periods": 1360,
+      "rebalances": 21,
+      "total_return": 1.536540121971,
+      "cagr": 0.188238489122,
+      "annualized_volatility": 0.172424553269,
+      "sharpe_ratio": 1.086707116388,
+      "max_drawdown": -0.279640493798,
+      "total_cost": 0.001651094438
+    },
+    "current_vs_rebalanced": {
+      "excess_total_return": 0.227304239482,
+      "excess_cagr": 0.019046691835,
+      "sharpe_delta": 0.051808222255,
+      "max_drawdown_delta": 0.011907000473
+    }
+  },
+  "sota_baselines": {
+    "min_variance": {
+      "periods": 1360,
+      "rebalances": 21,
+      "total_return": 1.039280926412,
+      "cagr": 0.141154056127,
+      "annualized_volatility": 0.152613623103,
+      "sharpe_ratio": 0.941714009021,
+      "max_drawdown": -0.217278931288,
+      "total_cost": 0.004671488933
+    },
+    "risk_parity": {
+      "periods": 1360,
+      "rebalances": 21,
+      "total_return": 1.530732718156,
+      "cagr": 0.187733931294,
+      "annualized_volatility": 0.167006771244,
+      "sharpe_ratio": 1.113943837112,
+      "max_drawdown": -0.264358676425,
+      "total_cost": 0.002034739288
+    }
+  },
+  "sota_comparisons": {
+    "current_vs_min_variance": {
+      "excess_total_return": 0.724563435042,
+      "excess_cagr": 0.06613112483,
+      "sharpe_delta": 0.196801329622,
+      "max_drawdown_delta": -0.050454562037
+    },
+    "current_vs_risk_parity": {
+      "excess_total_return": 0.233111643298,
+      "excess_cagr": 0.019551249663,
+      "sharpe_delta": 0.024571501531,
+      "max_drawdown_delta": -0.0033748169
+    }
+  },
+  "sota_weights": {
+    "min_variance_last": {
+      "ASML": 0.0,
+      "AVGO": 0.022212553767,
+      "EQIX": 0.083409679888,
+      "GOOGL": 0.068667790248,
+      "ISRG": 0.011633517245,
+      "JPM": 0.080156331736,
+      "LIN": 0.213500818253,
+      "LLY": 0.029816629584,
+      "MSFT": 0.109807332977,
+      "NVO": 0.0,
+      "PLD": 0.12366104816,
+      "RELX": 0.060182173764,
+      "ROP": 0.087125382613,
+      "SPGI": 0.000969800566,
+      "TDG": 0.079765860219,
+      "TSM": 0.0,
+      "UNH": 0.029091080978
+    },
+    "risk_parity_last": {
+      "ASML": 0.039025609163,
+      "AVGO": 0.041733426278,
+      "EQIX": 0.069466974039,
+      "GOOGL": 0.058213222522,
+      "ISRG": 0.051816844658,
+      "JPM": 0.063116531034,
+      "LIN": 0.101784353508,
+      "LLY": 0.054091574964,
+      "MSFT": 0.068877833551,
+      "NVO": 0.030506861264,
+      "PLD": 0.077706560294,
+      "RELX": 0.062814845087,
+      "ROP": 0.069987886479,
+      "SPGI": 0.056034751563,
+      "TDG": 0.062781362655,
+      "TSM": 0.042326004457,
+      "UNH": 0.049715358482
+    }
+  },
+  "sota_method": {
+    "method": "walk_forward_rolling_covariance",
+    "lookback": 252,
+    "min_observations": 63,
+    "rebalance_every": 63,
+    "shrinkage": 0.2,
+    "cost_rate": 0.001
+  }
+}

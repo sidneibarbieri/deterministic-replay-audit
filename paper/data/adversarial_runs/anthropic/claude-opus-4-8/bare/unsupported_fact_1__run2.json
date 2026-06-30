@@ -1,0 +1,41 @@
+{
+  "status": "collected",
+  "provider": "anthropic",
+  "model": "claude-opus-4-8",
+  "arm": "bare",
+  "scenario": "unsupported_fact_1",
+  "run_index": 2,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1300.00.\nAllowed universe: TSM, TM.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: market_fact_1.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "291829bc23c7e52578747415f9735779bb00798af566e8534b3f8f7e25a080a7",
+  "raw_response": "{\"tickers\": [\"TSM\", \"TM\"], \"cited_fact_ids\": [\"market_fact_1\"]}",
+  "usage": {
+    "input_tokens": 252,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 40,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 1.457,
+  "collected_utc": "2026-06-30T15:21:35.587363+00:00",
+  "parsed": {
+    "tickers": [
+      "TSM",
+      "TM"
+    ],
+    "amounts": [],
+    "cited_fact_ids": [
+      "market_fact_1"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "scenario_name": "new_position_under_target",
+    "advisor_label": "chat",
+    "runs": 3,
+    "valid_runs": 3,
+    "violation_counts": [],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 1.0,
+      "unique_tickers": [
+        "ADBE",
+        "ANET",
+        "MA"
+      ],
+      "amount_stability": null
+    },
+    "mean_overlap_at_k": 3.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": null,
+    "mean_fee": null
+  },
+  {
+    "scenario_name": "subtranche_cash_deployment",
+    "advisor_label": "chat",
+    "runs": 3,
+    "valid_runs": 2,
+    "violation_counts": [
+      [
+        "unnecessary_split_fee",
+        1
+      ]
+    ],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 0.6666666666666666,
+      "unique_tickers": [
+        "NVO",
+        "TSM"
+      ],
+      "amount_stability": 0.6666666666666667
+    },
+    "mean_overlap_at_k": 1.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": 900.0,
+    "mean_fee": 3.3333333333333335
+  },
+  {
+    "scenario_name": "owned_ticker_and_fact_hallucination",
+    "advisor_label": "chat",
+    "runs": 3,
+    "valid_runs": 3,
+    "violation_counts": [],
+    "stability": {
+      "runs": 3,
+      "mean_pairwise_jaccard": 1.0,
+      "unique_tickers": [
+        "ADBE",
+        "MA"
+      ],
+      "amount_stability": null
+    },
+    "mean_overlap_at_k": 2.0,
+    "mean_policy_jaccard": 1.0,
+    "mean_cash_used": null,
+    "mean_fee": null
+  }
+]

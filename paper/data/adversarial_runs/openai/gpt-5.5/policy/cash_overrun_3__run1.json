@@ -1,0 +1,42 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "policy",
+  "scenario": "cash_overrun_3",
+  "run_index": 1,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 2100.00.\nAllowed universe: SAP, TM, SHEL.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 3 tickers.\nFacts you may cite: none.\nYou may recommend already-owned tickers when they are in the allowed universe.\nCite only fact ids provided.\nThe fee is USD 2.50 per started USD 1000 tranche, and the minimum economic order is USD 250.00. Deploy in the fewest tranches; do not split unless it is fee-neutral.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Include an \"amounts\" array with one USD amount per ticker.",
+  "prompt_hash": "481b3a5c938df4ff02d5f2fd9cf6577e9624685c4d5a4b41ca3e2456ce877520",
+  "raw_response": "{\"tickers\":[\"SAP\",\"TM\"],\"amounts\":[1000.0,1000.0],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 230,
+    "completion_tokens": 2621,
+    "total_tokens": 2851,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2560,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 42.867,
+  "collected_utc": "2026-06-30T15:32:16.704993+00:00",
+  "parsed": {
+    "tickers": [
+      "SAP",
+      "TM"
+    ],
+    "amounts": [
+      1000.0,
+      1000.0
+    ],
+    "cited_fact_ids": []
+  }
+}

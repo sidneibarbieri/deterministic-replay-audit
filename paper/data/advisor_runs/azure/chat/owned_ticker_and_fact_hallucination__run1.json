@@ -1,0 +1,51 @@
+{
+  "status": "collected",
+  "provider": "azure",
+  "model": "chat",
+  "scenario": "owned_ticker_and_fact_hallucination",
+  "run_index": 1,
+  "temperature": 0.7,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1500.00.\nAllowed universe: MA, ADBE, ANET, V, MSCI.\nAlready owned: MSFT, TSM, NVO, SPGI.\nRecommend at most 2 tickers.\nFacts you may cite: owned_tickers_are_not_additions, ma_policy_candidate, adbe_policy_candidate, max_two_ideas_requested.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not recommend already-owned tickers. Do not include an \"amounts\" field unless explicitly required. Cite only fact ids provided.",
+  "prompt_hash": "31ce03aabc153f71856cdce953744495d7a7a5f1cd5a718034c7c838b49539a7",
+  "raw_response": "{\"tickers\": [\"MA\", \"ADBE\"], \"cited_fact_ids\": [\"owned_tickers_are_not_additions\", \"ma_policy_candidate\", \"adbe_policy_candidate\", \"max_two_ideas_requested\"]}",
+  "usage": {
+    "completion_tokens": 46,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 6,
+      "engine_ttft_ms": 19,
+      "engine_ttlt_ms": 295,
+      "pre_inference_ms": 127,
+      "service_tbt_ms": 6,
+      "service_ttft_ms": 323,
+      "service_ttlt_ms": 575,
+      "total_duration_ms": 454,
+      "user_visible_ttft_ms": 196
+    },
+    "prompt_tokens": 172,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "total_tokens": 218
+  },
+  "collected_utc": "2026-06-13T20:25:21.012635+00:00",
+  "parsed": {
+    "tickers": [
+      "MA",
+      "ADBE"
+    ],
+    "amounts": [],
+    "cited_fact_ids": [
+      "owned_tickers_are_not_additions",
+      "ma_policy_candidate",
+      "adbe_policy_candidate",
+      "max_two_ideas_requested"
+    ]
+  }
+}

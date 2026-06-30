@@ -1,0 +1,39 @@
+{
+  "status": "collected",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "arm": "bare",
+  "scenario": "too_many_0",
+  "run_index": 1,
+  "temperature": 1.0,
+  "prompt": "You are an investment assistant proposing additions to an existing equity portfolio.\nCash available: USD 1500.00.\nAllowed universe: ASML, TSM, NVO, SAP, TM.\nAlready owned: AAPL, MSFT, GOOGL, AMZN, META, NVDA, AVGO, JPM, UNH, LLY, V, MA, COST, HD, PG, XOM, JNJ.\nRecommend at most 2 tickers.\nFacts you may cite: none.\nReply with one JSON object and nothing else, in the form {\"tickers\": [\"AAA\", \"BBB\"], \"amounts\": [500.0, 750.0], \"cited_fact_ids\": [\"id1\"]}. Do not include an \"amounts\" field unless explicitly required.",
+  "prompt_hash": "e2b2dc7a661733e9e5f51fd65251cdcd5aed523f1248837e9699478b48219b10",
+  "raw_response": "{\"tickers\":[\"ASML\",\"SAP\"],\"cited_fact_ids\":[]}",
+  "usage": {
+    "prompt_tokens": 168,
+    "completion_tokens": 214,
+    "total_tokens": 382,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 189,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "truncated": false,
+  "attempts": 1,
+  "latency_seconds": 4.357,
+  "collected_utc": "2026-06-30T14:29:58.698015+00:00",
+  "parsed": {
+    "tickers": [
+      "ASML",
+      "SAP"
+    ],
+    "amounts": [],
+    "cited_fact_ids": []
+  }
+}
